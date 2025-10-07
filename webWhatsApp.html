@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inkview Academy – Enroll Now</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6a00f4, #00e0ff);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    form {
+      background: white;
+      color: #333;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      width: 320px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+    button {
+      background: #6a00f4;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #00e0ff;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <form id="enrollForm">
+    <h2>Enroll Now</h2>
+    <input type="text" id="name" placeholder="Full Name of Student" required>
+    <input type="text" id="level" placeholder="Class / Level (e.g. JSS2)" required>
+    <select id="subject" required>
+      <option value="">Select Subject</option>
+      <option>Coding</option>
+      <option>Mathematics</option>
+      <option>Physics</option>
+      <option>Chemistry</option>
+      <option>Biology</option>
+      <option>Further Maths</option>
+    </select>
+    <input type="text" id="contact" placeholder="Parent Phone Number" required>
+    <button type="submit">📩 Enroll Now</button>
+  </form>
+
+  <script>
+    document.getElementById("enrollForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const level = document.getElementById("level").value;
+      const subject = document.getElementById("subject").value;
+      const contact = document.getElementById("contact").value;
+
+      // Your WhatsApp business number (without + or spaces)
+      const phoneNumber = "2349129818875"; // Nigeria format: 234 + phone number
+
+      // Create message text
+      const message = `*New Enrollment at Inkview Academy*\n\n👤 Name: ${name}\n🎓 Level: ${level}\n📘 Subject: ${subject}\n📞 Parent Contact: ${contact}`;
+
+      // Create WhatsApp link
+      const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+      // Open WhatsApp chat
+      window.open(whatsappLink, "_blank");
+    });
+  </script>
+</body>
+</html>
